@@ -47,7 +47,9 @@ pre > code {
 <pre><code>@import url(stylesheet.css);
 </code></pre>
 <p>몽골문자는 오직 한 폰트만 지정될수 있도록 class를 따로 만들어서 폰트를 설정해야 한다. 외부에서 import하는 stylesheet 링크는 <code>&lt;style&gt;</code>의 최상단에 배치한다.<br>For Mongolian script, the font must be set by creating a separate class so that only one font is specified. Stylesheet links imported from external webpages must be placed at the top of <code>&lt;style&gt;</code>.</p>
-<p>예시:</p>
+  <p>상당히 많은 몽골문자와 만주문자가 모양이 같으나 유니코드가 다르다. 이는 두 문자체계가 글을 씀에 있어 서법이 확연히 다르기 때문이다. 몽골문자와 만주문자는 생김새만 같은 서로 상이한 체계로 보아도 무방하다. 따라서 각 유니코드 문자별로 다른 폰트가 적용되어야 하기에 두 문자는 각각 다른 폰트를 설정해 주어야 하며, 통일을 해야 할 경우 Mongolian Universal White와 같은 두 체계를 동시에 지원하는 폰트를 사용함이 좋다.</p>
+
+<p>CSS 예시:</p>
 <pre><code>.m {
     font-family: 'Mongolian Universal White';
     writing-mode: vertical-lr;
@@ -70,6 +72,5 @@ pre > code {
   <p><a href="https://onon.cn/">https://onon.cn</a></p>
 <p><a href="http://www.mongolfont.com/">http://www.mongolfont.com</a></p>
   <p>Mongolian Universal White font source: <a href='http://hkuri.cneas.tohoku.ac.jp/project1/font'>http://hkuri.cneas.tohoku.ac.jp/project1/font</a></p>
-  <p>상당히 많은 몽골문자와 만주문자가 모양이 같으나 유니코드가 다르다. 이는 두 문자체계가 글을 씀에 있어 서법이 확연히 다르기 때문이다. 몽골문자와 만주문자는 생김새만 같은 서로 상이한 체계로 보아도 무방하다. 따라서 각 유니코드 문자별로 다른 폰트가 적용되어야 하기에 두 문자는 각각 다른 폰트를 설정해 주어야 하며, 통일을 해야 할 경우 Mongolian Universal White와 같은 두 체계를 동시에 지원하는 폰트를 사용함이 좋다.</p>
 </body>
 </html>

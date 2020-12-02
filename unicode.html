@@ -4,8 +4,18 @@
 <title>Mongolian script unicode summary</title>
 <style>
 @import url(https://victorlee.github.io/Mongolian_Universal_White/stylesheet.css);
+@import url(https://victorlee.github.io/fonts/stylesheet.css);
 h1, h2, h3, p {
     font-family: arial;
+}
+.table {
+  width: 75%;
+  float: left;
+}
+.txta {
+  text-align: left;
+  width: 24%;
+  float: left;
 }
 table {
     border-collapse: collapse;
@@ -36,13 +46,18 @@ table td:hover {
     color: #00F;
     background: rgba(0,200,200,0.3);
 }
+#output {
+    font-size: 40px;
+    width: 100%;
+}
 </style>
 </head>
 <body>
 <center>
-<h1>Mongolian script unicode summary</h1><hr>
-<p>Click the character for a quick Google search, click its unicode below for detailed stats.<br>Any text you click inside the table are copied to your clipboard.<br>Base font is Mongolian Universal White. U+181A ~ U+181E use Monospace font as MUW is not supported.
-<br>Details over U+1878 <a href="https://www.unicode.org/L2/L2017/17007-n4781-mongolian.pdf">https://www.unicode.org/L2/L2017/17007-n4781-mongolian.pdf</a></p>
+<h1>Mongolian script unicode summary</h1>
+<p>Click the character to type into textbox below, click its unicode below for detailed stats.<br>Any text you click inside the table are copied to your clipboard.<br>Base font is Mongolian Universal White. U+181A ~ U+181E use Monospace font as MUW is not supported.
+<br>Details over U+1878 <a href="https://www.unicode.org/L2/L2017/17007-n4781-mongolian.pdf">https://www.unicode.org/L2/L2017/17007-n4781-mongolian.pdf</a><br>more info: <a href="https://www.unicode.org/charts/PDF/U1800.pdf">https://www.unicode.org/charts/PDF/U1800.pdf</a></p><hr>
+<div class="table">
 <table>
 <tbody>
 <tr class="mongolian">
@@ -432,10 +447,45 @@ table td:hover {
 </tr>
 </tbody>
 </table>
+</div>
+<div class="txta">
+<textarea id="output" rows="4"></textarea>
+<button onclick="monospace()">monospace</button><br>
+<button onclick="muw()">Mongolian Universal White</button><br>
+<button onclick="nsm()">Noto Sans Mongolian</button> mo.<br>
+<button onclick="oss()">Onon Sonin Sans</button> mo.<br>
+<button onclick="mgt()">Menk Garqag Tig</button> mo.<br>
+<button onclick="zb()">XM_ZhengBai</button> ma.<br>
+<button onclick="bh()"> XM_BiaoHei</button> ma.<br>
+</div>
 </center>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+function insertAtCaret(areaId, text) {
+  var txtarea = document.getElementById(areaId);
+  if (!txtarea) {
+    return;
+  }
+  var scrollPos = txtarea.scrollTop;
+  var strPos = 0;
+  var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
+    "ff" : (document.selection ? "ie" : false));
+  if (br == "ie") {
+    txtarea.focus();
+    var range = document.selection.createRange();
+    range.moveStart('character', -txtarea.value.length);
+    strPos = range.text.length;
+  } else if (br == "ff") {
+    strPos = txtarea.selectionStart;
+  }
+  var front = (txtarea.value).substring(0, strPos);
+  var back = (txtarea.value).substring(strPos, txtarea.value.length);
+  txtarea.value = front + text + back;
+  strPos = strPos + text.length;
+  txtarea.scrollTop = scrollPos;
+}
+// ----------------------
 $(".mongolian>td").click(function(){
     var range = document.createRange();
     range.selectNodeContents(this);  
@@ -443,7 +493,7 @@ $(".mongolian>td").click(function(){
     sel.removeAllRanges(); 
     sel.addRange(range);
     document.execCommand('copy');
-    window.open("https://www.google.com/search?q=" + sel, "_blank");
+    insertAtCaret('output', sel);return false;
 });
 $(".unicode>td").click(function(){
     var range = document.createRange();
@@ -454,5 +504,27 @@ $(".unicode>td").click(function(){
     document.execCommand('copy');
     window.open("https://www.compart.com/en/unicode/" + sel, "_blank");
 });
+// ---------------------------
+function monospace() {
+  document.getElementById("output").style.fontFamily = "monospace";
+}
+function muw() {
+  document.getElementById("output").style.fontFamily = "Mongolian Universal White";
+}
+function nsm() {
+  document.getElementById("output").style.fontFamily = "Noto Sans Mongolian";
+}
+function oss() {
+  document.getElementById("output").style.fontFamily = "Onon Sonin Sans";
+}
+function mgt() {
+  document.getElementById("output").style.fontFamily = "Menk Garqag Tig";
+}
+function zb() {
+  document.getElementById("output").style.fontFamily = 'XM_ZB';
+}
+function bh() {
+  document.getElementById("output").style.fontFamily = 'XM_BH';
+}
 </script>
 </body>

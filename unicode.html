@@ -516,7 +516,7 @@ background: rgba(100,250,100,0.4);
 <div class="side">
 <textarea id="output" rows="4" placeholder="ᠭᠠᠷᠤᠯᠲᠠ"></textarea>
 <p>
-<button onclick="document.getElementById('output').value = ''" style="color:red">Clear</button><br>
+<button onclick="insertAtCaret('output', ' ');return false;" style="color:blue">space</button> <button onclick="document.getElementById('output').value = ''" style="color:red">Clear</button><br>
 <button onclick="monospace()">Monospace</button> default<br>
 <button onclick="muw()">Mongolian Universal White</button> mo. & ma.<br>
 <button onclick="nsm()">Noto Sans Mongolian</button> mo.<br>

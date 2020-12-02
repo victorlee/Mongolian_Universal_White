@@ -1,3 +1,5 @@
+
+
 <html>
 <head>
 <meta charset='UTF-8'>
@@ -43,7 +45,7 @@ table td, table th {
     text-align: center;
     cursor: pointer;
 }
-.unicode {
+.unicode, .top-side {
     font-family: arial;
     font-size: 15px;
     font-weight: bold;
@@ -59,7 +61,7 @@ table .mongolian > td:hover {
     color: #F00;
     background: rgba(150,150,150,0.3);
 }
-table td:hover {
+table .unicode > td:hover {
     color: #00F;
     background: rgba(0,200,200,0.3);
 }
@@ -100,6 +102,24 @@ background: rgba(100,250,100,0.4);
 <div class="table">
 <table>
 <tbody>
+<tr class="top-side">
+<td>0 </td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+</tr>
 <tr class="mongolian">
 <td>᠀</td>
 <td>᠁</td>
@@ -490,7 +510,7 @@ background: rgba(100,250,100,0.4);
 <br>
 </div>
 <div class="side">
-<textarea id="output" rows="4"></textarea>
+<textarea id="output" rows="7"></textarea>
 <p>
 <button onclick="document.getElementById('output').value = ''" style="color:red">Clear</button><br>
 <button onclick="monospace()">Monospace</button> default<br>

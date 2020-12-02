@@ -30,6 +30,10 @@ overflow-x:auto;
   margin: auto;
 }
 }
+::selection {
+color: #F00;
+background: rgba(1,1,1,0.2);
+}
 table {
     border-collapse: collapse;
     border: 1px solid black;
@@ -488,14 +492,15 @@ background: rgba(100,250,100,0.4);
 <div class="txta">
 <textarea id="output" rows="7"></textarea>
 <p>
-<button onclick="document.getElementById('output').value = ''" style="color:red">Clear</button><br>
 <button onclick="monospace()">Monospace</button> default<br>
 <button onclick="muw()">Mongolian Universal White</button> mo. & ma.<br>
 <button onclick="nsm()">Noto Sans Mongolian</button> mo.<br>
 <button onclick="oss()">Onon Sonin Sans</button> mo.<br>
 <button onclick="mgt()">Menk Garqag Tig</button> mo.<br>
 <button onclick="zb()">XM_ZhengBai</button> ma.<br>
-<button onclick="bh()"> XM_BiaoHei</button> ma.</p>
+<button onclick="bh()"> XM_BiaoHei</button> ma.<br>
+<button onclick="document.getElementById('output').value = ''" style="color:red">Clear</button>
+</p>
 <hr>
 <p style="border: 1px solid">U+1800 ~ U+180A: punctuation</p>
 <p class="fc" style="border: 1px solid">U+180B ~ U+180F: format controls</p>

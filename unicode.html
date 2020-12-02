@@ -59,6 +59,9 @@ table td:hover {
     color: #00F;
     background: rgba(0,200,200,0.3);
 }
+.fc {
+background: rgba(250,200,100,0.3);
+}
 .ex {
 background: rgba(0,0,200,0.1);
 font-family: monospace;
@@ -105,11 +108,11 @@ background: rgba(100,250,100,0.4);
 <td>᠈</td>
 <td>᠉</td>
 <td>᠊</td>
-<td>᠋</td>
-<td>᠌</td>
-<td>᠍</td>
-<td>᠎</td>
-<td>᠏</td>
+<td class="fc">᠋</td>
+<td class="fc">᠌</td>
+<td class="fc">᠍</td>
+<td class="fc">᠎</td>
+<td class="fc">᠏</td>
 </tr>
 <tr class="unicode">
 <td>U+1800</td>
@@ -485,7 +488,7 @@ background: rgba(100,250,100,0.4);
 <div class="txta">
 <textarea id="output" rows="7"></textarea>
 <p>
-<button onclick="monospace()">Monospace</button><br>
+<button onclick="monospace()">Monospace</button> default<br>
 <button onclick="muw()">Mongolian Universal White</button> mo. & ma.<br>
 <button onclick="nsm()">Noto Sans Mongolian</button> mo.<br>
 <button onclick="oss()">Onon Sonin Sans</button> mo.<br>
@@ -495,12 +498,15 @@ background: rgba(100,250,100,0.4);
 <button onclick="document.getElementById('output').value = ''" style="color:red">Clear</button>
 </p>
 <hr>
-<p style="border: 1px solid">U+1820 ~ U+1842: Mongolian basic letters</p>
-<p class="todo" style="border: 1px solid">U+1843 ~ U+185C: Todo script</p>
-<p class="sibe" style="border: 1px solid">U+185D ~ U+1872: Sibe script</p>
-<p class="manchu" style="border: 1px solid">U+1873 ~ U+1877: Manchu script</p>
-<p class="buryat" style="border: 1px solid">U+1878: Buryat script  (<a href="https://www.unicode.org/L2/L2017/17007-n4781-mongolian.pdf">details</a>)</p>
-<p style="border: 1px solid">U+1879 ~ U+18AA: Ali Gali extensions</p>
+<p style="border: 1px solid">U+1800 ~ U+180A: punctuation</p>
+<p class="fc" style="border: 1px solid">U+180B ~ U+180F: format controls</p>
+<p style="border: 1px solid">U+1810 ~ U+1819: digits</p>
+<p style="border: 1px solid">U+1820 ~ U+1842: basic letters</p>
+<p class="todo" style="border: 1px solid">U+1843 ~ U+185C: Todo letters</p>
+<p class="sibe" style="border: 1px solid">U+185D ~ U+1872: Sibe letters</p>
+<p class="manchu" style="border: 1px solid">U+1873 ~ U+1877: Manchu letters</p>
+<p class="buryat" style="border: 1px solid">U+1878: Buryat letters (<a href="https://www.unicode.org/L2/L2017/17007-n4781-mongolian.pdf">details</a>)</p>
+<p style="border: 1px solid">U+1880 ~ U+18AA: Ali Gali extensions</p>
 </div>
 </center>
 </body>

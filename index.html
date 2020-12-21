@@ -82,18 +82,15 @@ html {
     function scrollHorizontally(e) {
         e = window.event || e;
         var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.documentElement.scrollLeft -= (delta*50); // Multiplied by 50
-        document.body.scrollLeft -= (delta*50); // Multiplied by 50
+        document.documentElement.scrollLeft -= (delta*50);
+        document.body.scrollLeft -= (delta*50);
         e.preventDefault();
     }
     if (window.addEventListener) {
-        // IE9, Chrome, Safari, Opera
-        window.addEventListener("mousewheel", scrollHorizontally, false);
-        // Firefox
-        window.addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        window.addEventListener("mousewheel", scrollHorizontally, false); // IE9, Chrome, Safari, Opera
+        window.addEventListener("DOMMouseScroll", scrollHorizontally, false); // Firefox
     } else {
-        // IE 6/7/8
-        window.attachEvent("onmousewheel", scrollHorizontally);
+        window.attachEvent("onmousewheel", scrollHorizontally); // IE 6/7/8
     }
 })();
 &lt;/script&gt;</code></pre>
